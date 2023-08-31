@@ -1,0 +1,190 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Contact
+{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+<section  id="contact" class="contact-section-padding  ">
+  <div class="container ">
+    <h1 class=" text-center pt-5 " style="font-family:times-new-roman;">GET IN <span class="text-danger"> TOUCH</span> WITH US</h1>
+    <hr class="w-25 m-auto">
+    <h4 class="mt-4 text-center">We value your inquiries, send us a message and we’ll get back to you
+    </h4 >
+
+
+   
+
+    <div class="row pt-3">
+      <div class="col-sm-12 col-md-6 col-lg-3 col-12 card-hover">
+        <a {% if contact_info.map_url %} href="{{contact_info.map_url}}" {% else %}
+         href="https://goo.gl/maps/q2iL1FeLuv8H364d6"
+         {% endif %} target="_blank" style="text-decoration:none; color:none;" >
+          <div class="card text-black text-center bg-white pb-2 mb-2 shadow" >
+            <div class="card-body">
+              <center><i class="bi bi-building text-center  fs-1 color-info"></i></center>
+              <h4 class="text-center pt-2" style="font-family:Times-new-roman; fotn-style:bold;">Head Office</h4>
+                <h6 class="text-center">{{ contact_info.location }}</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-3 col-12 card-hover">
+        <a  {% if contact_info.map_url %} href="{{contact_info.map_url}}" {% else %}
+        href="https://goo.gl/maps/q2iL1FeLuv8H364d6"
+        {% endif %} target="_blank" style="text-decoration:none; color:none;" >
+          <div class="card text-black text-center bg-white pb-2 mb-2 shadow" >
+            <div class="card-body">
+              <center><i class="bi bi-building text-center  fs-1 color-info"></i></center>
+              <h4 class="text-center  pt-2" style="font-family:Times-new-roman; fotn-style:bold;">Branch Office </h4>
+                <h6 class="text-center">{{branch_office.location}}</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+      <div class="col-sm-12 col-md-6 col-lg-3 col-12 card-hover">
+        <a href="tel:{{contact_info.phone_number}}" style="text-decoration:none; color:none;" >
+          <div class="card text-black text-center bg-white pb-2 mb-2 shadow" >
+              <div class="card-body">
+                <center><i class="bi bi-telephone fs-1"></i></center>
+                <h4 class="text-center  pt-2" style="font-family:Times-new-roman; fotn-style:bold;">Phone Number</h4>
+                 <h6 class="text-center"> +977 - {{contact_info.phone_number}}</h6>
+              </div>
+          </div>
+        </a>
+      </div>
+
+      
+
+     
+      <div class="col-sm-12 col-md-6 col-lg-3 col-12 card-hover">
+        <a {% if contact_info.email %} href="mailto:{{contact_info.email }}"
+        {% else %} href="mailto:"{% endif %} style="text-decoration:none;" >
+          <div class="card text-black text-center bg-white pb-2 mb-2 shadow">
+              <div class="card-body">
+                <center><i class="bi bi-envelope fs-1"></i></center>
+                <h4 class="text-center  pt-2" style="font-family:Times-new-roman; fotn-style:bold;">E-mail </h4>
+                 <h6 class="text-center">{{contact_info.email}}</h6>
+              </div>
+          </div>
+        </a>
+      </div>
+      
+  </div>
+
+
+    <div class="row pt-4">
+      <iframe class=" container-fluid"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.4118814132908!2d85.31995787459736!3d27.704566525615686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1920b5d3f3cf%3A0xa06ddb1475407281!2sToronto%20Education%20Consulting%20Services!5e0!3m2!1sne!2snp!4v1682917898879!5m2!1sne!2snp%22"
+       width="600" height="450" style="border:0;" allowfullscreen="" 
+       loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+   
+  </div>
+
+  <br>
+  <div class="container-fluid"  style="background:#e8eeef !important;">
+    <div class="row  " >
+      <div class="  col-lg-6 col-md-6 col-sm-12 h-100  " > 
+
+        <img class=" img-fluid w-100 " src="{% static 'app/image/pngegg.png' %}" alt="contactimg" />
+      </div>
+      <div class="col-md-12 col-lg-6 col-sm-12 col-12 shadow rounded p-3 bg-white rounded ">
+        {% if messages %}
+              {% for msg in messages %}
+                  {% if msg.tags == 'success' %}
+                  <div class="alert alert-success alert-dismissable fade show text-start">
+                      {{msg.message}}
+                      <span class="closebtn float-end btn" onclick="this.parentElement.style.display='none';">&times;</span>
+
+                  </div>
+                  {% else %}
+                  <div class="alert alert-danger alert-dismissable fade show text-start">
+                      {{msg.message}}
+                      <span class="closebtn float-end btn" onclick="this.parentElement.style.display='none';">&times;</span>
+
+                  </div>
+                  {% endif %}
+              {% endfor %}
+          {% endif %}
+        
+          
+
+        <form class="d-block w-100 box-shadow h-100"  method="post" action ="{% url 'contact' %}">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col col-sm-6">
+              <input
+                  type="text"
+                  class="form-control"
+                  id="fname"
+                  name="firstname"
+                  placeholder="Full Name"
+                  required
+              >
+            </div>
+            <div class="col col-sm-6">
+              <input
+                type="text"
+                class="form-control"
+                id="lname"
+                name="lastname"
+                placeholder="Last Name"
+                required
+              >
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col col-sm-6">
+              <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="E-mail"
+                  required
+              >
+            </div>
+
+            <div class="col col-sm-6">
+              <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              name="phone_number"
+              placeholder="Phone Number"
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col col-sm-12">
+              <textarea
+                name="message"
+                  id="message"
+                  rows="3"
+                  placeholder=" Message"
+              ></textarea>
+            </div>
+
+
+          </div>
+          <div class="text-center mt-4">
+            <button type="submit" name="Submit" class="btn btn-danger">Submit</button>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

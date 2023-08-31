@@ -1,0 +1,769 @@
+*
+{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif ;
+}
+body{
+  overflow-x:hidden ;
+  background-color: whitesmoke;
+  /* scroll-behavior: smooth; */
+
+}
+
+
+/* .carousel-caption{
+  margin-bottom: 25px;
+    z-index: 2;
+  }
+  .carousel-caption h1{
+    font-size: 40px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  
+  }
+  .carousel-caption p{
+   margin: 20px;  
+    font-size: 30px;
+    line-height: 2.1;
+    color:white;
+  }
+  .carousel-item::before
+  {
+    content: "";
+    position:absolute;
+    width:100%;
+    height:100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+  }
+  .carousel-item img
+  {
+  width:100%;
+  height:100vh;
+  } */
+
+  @media only screen and (min-width:1401px) and (max-width:2100px)
+  {
+    .carousel-caption{
+      margin-bottom: 25px;
+        z-index: 2;
+      }
+      .carousel-caption h1{
+        font-size: 40px;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      
+      }
+      .carousel-caption h2{
+       margin: 20px;  
+        font-size: 30px;
+        line-height: 2.1;
+        color:white;
+      }
+      .carousel-item::before
+      {
+        content: "";
+        position:absolute;
+        width:100%;
+        height:100%;
+        background: rgba(0, 0, 0, 0.548);
+        z-index: 1;
+      }
+      .carousel-item img
+      {
+      width:100%;
+      height:100vh;
+      }
+       h1
+      {
+        font-size: 40px;
+   
+      }
+      p
+      {
+        font-size: 16px;
+
+      }
+     h3
+      {
+        font-size: 24px;
+   
+      }
+     h2
+      {
+        font-size: 30px;
+   
+      }
+      h5 
+      {
+        font-size: 18px;
+      }
+      .testimonials h1, footer h1 , .ourteam h1, .Questions h1, .about h1, .service h1, #contact h1,.blogs- h1
+      {
+        font-size: 40px;
+        font-weight: bold;
+      }
+     
+      .testimonials p, footer p , .ourteam p, .Questions p, .about p, .service p,.blogs- p 
+      {
+        font-size: 16px;
+
+      }
+     
+      .testimonials h3, footer h3 , .ourteam h3, .Questions h3, .about h3 , .service h3,.blogs- h3
+      {
+        font-size: 24px;
+
+      }
+    
+      .testimonials h2, footer h2 , .ourteam h2, .Questions h2, .about h2 , .service h2 ,.blogs- h2
+      {
+        font-size: 30 px;
+   
+      }
+    
+      .testimonials h5, footer h5 , .ourteam h5,.blogs h5, .Questions h5, .about h5 , .service h5,#contact h5, .blogs- h5
+      {
+        font-size: 18px;
+      }
+      .icons 
+      {
+       font-size: 100px;
+      }
+    
+  }
+  
+  @media only screen and (min-width:900px) and (max-width:1400px) 
+  {
+    .carousel-caption{
+      margin-bottom: 20px;
+        z-index: 2;
+      }
+      .carousel-caption h1{
+        font-size:30px;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      
+      }
+      .carousel-caption h2{
+       margin: 15px;  
+        font-size: 20px;
+        line-height: 1.7;
+        color:white;
+      }
+      .carousel-item::before
+      {
+        content: "";
+        position:absolute;
+        width:100%;
+        height:100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 1;
+      }
+      .carousel-item img
+      {
+      width:100%;
+      height:85vh;
+      }
+       h1
+      {
+        font-size: 30px;
+   
+      }
+     p
+      {
+        font-size: 15px;
+
+      }
+      h3
+      {
+        font-size: 20px;
+   
+      }
+     h2
+      {
+        font-size: 25 px;
+   
+      }
+      h5 
+      {
+        font-size: 18px ;
+      }
+      .testimonials h1, footer h1 , .ourteam h1, .Questions h1, .about h1, .service h1, #contact h1 ,.blogs- h1
+      {
+        font-size: 30px;
+        font-weight: bold;
+      }
+     
+      .testimonials p, footer p , .ourteam p, .Questions p, .about p, .service p, .blogs p, .blogs- p
+      {
+        font-size: 15px;
+
+      }
+     
+      .testimonials h3, footer h3 , .ourteam h3, .Questions h3, .about h3 , .service h3, .blogs- h3
+      {
+        font-size: 20px;
+
+      }
+    
+      .testimonials h2, footer h2 , .ourteam h2, .Questions h2, .about h2 , .service h2, .blogs- h2
+      {
+        font-size: 25 px;
+   
+      }
+    
+      .testimonials h5, footer h5 , .ourteam h5,.blogs h5, .Questions h5, .about h5 , .service h5,#contact h5, .blogs- h5
+            {
+        font-size: 18px;
+      }
+      .icons 
+      {
+       font-size: 75px;
+      }
+    }
+  @media only screen and (min-width:500px) and (max-width:899px) 
+  {
+    
+    .team img{
+      width: 100%;
+      height: 300px;
+    }
+    .carousel-caption{
+      margin-bottom: 20px;
+        z-index: 2;
+      }
+      .carousel-caption h1{
+        font-size:25px;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+      
+      }
+      .carousel-caption h2{
+       margin: 10px;  
+        font-size: 15px;
+        line-height: 1.5;
+        color:white;
+      }
+      .carousel-item::before
+      {
+        content: "";
+        position:absolute;
+        width:100%;
+        height:100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 1;
+      }
+      .carousel-item img
+      {
+      width:100%;
+      height:75vh;
+      }
+       h1
+      {
+        font-size: 22px;
+   
+      }
+      p  
+      {
+        font-size: 12px;
+
+      }
+      h3
+      {
+        font-size: 18px;
+   
+      }
+       h2
+      {
+        font-size: 20 px;
+   
+      }
+      h5
+      {
+        font-size: 15px;
+      }
+     
+      .testimonials h1, footer h1 , .ourteam h1, .Questions h1, .about h1, .service h1, #contact h1, .blogs- h1
+      {
+        font-size: 22px;
+        font-weight: bold;
+      }
+     
+      .testimonials p, footer p , .ourteam p, .Questions p, .about p, .service p, .blogs p, .blogs- p
+      {
+        font-size: 12px;
+
+      }
+     
+      .testimonials h3, footer h3 , .ourteam h3, .Questions h3, .about h3 , .service h3, .blogs- h3
+      {
+        font-size: 18px;
+
+      }
+    
+      .testimonials h2, footer h2 , .ourteam h2, .Questions h2, .about h2 , .service h2
+      {
+        font-size: 20 px;
+   
+      }
+    
+      .testimonials h5, footer h5 , .ourteam h5, .blogs h5,.Questions h5, .about h5 , .service h5,#contact h5
+      {
+        font-size: 15px;
+      }
+      .icons 
+      {
+       font-size: 50px;
+      }
+    
+  }
+  @media only screen  and (max-width:499px) 
+  {
+    .team img{
+      width: 100%;
+      height: 300px;
+    }
+    .carousel-caption{
+      margin-bottom: 20px;
+        z-index: 2;
+      }
+      .carousel-caption h1{
+        font-size:15px;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      
+      }
+      .carousel-caption h2{
+       margin: 5px;  
+        font-size: 12px;
+        line-height: 1.2;
+        color:white;
+      }
+      .carousel-item::before
+      {
+        content: "";
+        position:absolute;
+        width:100%;
+        height:100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 1;
+      }
+      .carousel-item img
+      {
+      width:100%;
+      height:50vh;
+      }
+      h1
+      {
+        font-size: 18px;
+   
+      }
+      .testimonials h1, footer h1 , .ourteam h1, .Questions h1, .about h1, .service h1, #contact h1, .blogs- h1
+      {
+        font-size: 18px;
+        font-weight: bold;
+      }
+       p 
+      {
+        font-size: 8px;
+
+      }
+      .testimonials p, footer p , .ourteam p, .Questions p, .about p, .service p, .blogs- p
+      {
+        font-size: 8px;
+
+      }
+      h3
+      {
+        font-size: 12px;
+   
+      }
+      .testimonials h3, footer h3 , .ourteam h3, .Questions h3, .about h3 , .service h3,.blogs- h3
+      {
+        font-size: 12px;
+
+      }
+     h2 
+     {
+      font-size: 15 px;
+ 
+     }
+      .testimonials h2, footer h2 , .ourteam h2, .Questions h2, .about h2 , .service h2,.blogs- h2
+      {
+        font-size: 15 px;
+   
+      }
+      h5 
+      {
+        font-size: 10px;
+      }
+      .testimonials h5, footer h5 , .ourteam h5, .Questions h5, .about h5 , .blogs h5,.service h5,#contact h5,.blogs- h5
+      {
+        font-size: 10px;
+      }
+      .icons 
+      {
+       font-size: 25px;
+      }
+     
+  }
+.nav-link
+ {
+  font-size: 18px;
+
+ }
+ .nav-item 
+ {
+  margin-left: 15px;
+ }
+ .navbar ul{
+  font-weight:400;
+ }
+ .bounce-image {
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-30px);
+  }
+}
+.ourteam img
+{
+ width: 150px;
+ height: 150px;
+}
+
+
+
+.testimonials a:hover 
+{
+  color:white;
+} 
+.ourteambtn a:hover 
+{
+  color: white ;
+}
+#contact input{
+  height:40px;
+  outline: none;
+  border-radius: 25px;
+  border: 1px solid gainsboro;
+ margin: 10px;
+  
+  height: 45px;
+  padding: 10px;
+  box-shadow: inset 8px 8px #ffffff,inset -8px -8px 8px #ecf0f3;
+  /* width: 100%; */
+} 
+#contact textarea {
+  margin: 10px;
+  border-radius: 25px;
+  outline: none;
+  border: 1px solid gainsboro;
+  padding: 10px;
+  box-shadow: inset 8px 8px #ffffff,inset -8px -8px 8px #ecf0f3;
+  width: 96%;
+}
+#contact button{
+  border-radius: 15px;
+  border: 1px solid;
+  padding-left: 20px;
+  padding-right: 20px;
+ 
+}
+.form-group
+{
+  width: 46%;
+  float: left;
+}
+#cards button 
+{
+  padding-left: 25px;
+  padding-right: 25px;
+}
+ 
+
+.bounce-card:hover {
+  animation-name: bounce1;
+  animation-duration: 1s;
+  animation-iteration-count:infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes bounce1 {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-30px);
+  }
+}
+.about img 
+{
+  height:100%;
+  width:100%
+}
+
+.blog-image
+{
+  height: 10vh;
+}
+.card-hover:hover i  {
+  color:red;
+ 
+  
+}
+
+
+.owl-nav 
+{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  inset: 0;
+ font-size: 40px;
+ color:gainsboro;
+}
+ .nav-link:hover {
+  background-color: gainsboro;
+}
+input:focus::placeholder , textarea:focus::placeholder{
+  transform: translateY(-2.5em);
+  transition: transform 0.3s ease-out;
+}
+/* .testimonials img{
+  width: 100%;
+ height: 50vh;
+} */
+.img-area
+{
+ 
+  padding: 10px;
+  position: relative;
+  display: block;
+  background: #fff;
+  color:black;
+  box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
+  margin:40px 0;
+}
+.img-area h5{
+  font-size:16px;
+  font-weight:700;
+  color:#0a69ed;
+  margin-top:30px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.img-area .box-area 
+{
+  width: 109px;
+  height: 111px;
+  position: absolute;
+  top: -43px;
+  left: 0px;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 5px 4px rgba(0,0,0,0.5);
+  text-align: center;
+}
+.img-area .box-area img
+{
+  width:100%;
+  height: 80px;
+  border-radius: 70%;
+}
+
+#testimonials- img
+{
+  height: 40vh;
+  width: 100%;
+}
+.ft 
+{
+  margin: 0;
+}
+
+.tag{
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.72;
+  font-weight: 500;
+  color: #fff;
+  background: #764AF1;
+  padding: 7px 10px;
+  border-radius: 10px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  text-transform: capitalize;
+}
+#card-title {
+  font-family:"Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.page_banner_top_overlay{
+  display: flex;
+  align-items: center;
+  /* background: #ed2532; */
+  background-image: url('https://www.canadamigrationlawyers.com/wp-content/uploads/2022/02/study-in-canada-banner.jpg');
+  min-height: 200px;
+  padding: 40px 0;
+  height: auto;
+  max-width: 100%;
+  
+}
+
+
+
+h2, h3, h4, h5, h6 {
+  color: #222;
+  font-family: 'Montserrat', sans-serif;
+}
+h2 {
+  font-size: 36px;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0px;
+  margin: 0 0 40px;
+}
+.footer-head{
+  color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+
+/* team section */
+
+.team {
+  text-align: center
+}
+
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  position: relative;
+  margin-bottom: 40px;
+  margin-top: 0
+}
+
+.team .team-item {
+  text-align: left;
+  margin-bottom: 30px;
+  overflow:hidden;
+}
+
+.team .team-item figure {
+  position: relative;
+  overflow: hidden
+}
+
+img {
+  width: 100%
+}
+
+.team .team-item figure figcaption {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: rgba(9, 9, 9, .6);
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  transition: all .5s ease
+}
+
+.team .team-item figure figcaption .info {
+  position: absolute;
+  color: #fff;
+  float: left;
+  bottom: 10px;
+  left: 20px;
+  margin-left: -80px;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  transition: all .5s ease
+}
+
+.team .team-item figure:hover figcaption {
+  opacity: 1
+}
+
+.team .team-item figure:hover figcaption .info {
+  margin-left: 0
+}
+
+.team .team-item figure figcaption .info h3 {
+  font-size: 20px
+}
+
+.team .team-item figure figcaption .info p {
+  color: #fff
+}
+
+.team .team-item figure:hover figcaption .social {
+  margin-bottom: 0
+}
+
+.team .team-item figure figcaption .social {
+  position: absolute;
+  float: right;
+  bottom: 28px;
+  margin-bottom: -80px;
+  right: 20px;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  transition: all .5s ease
+}
+
+.team .team-item figure figcaption .social a {
+  color: #fff;
+  font-size: 15px;
+  width: 36px;
+  height: 36px;
+  background: #3f51b5;
+  display: inline-block;
+  text-align: center;
+  line-height: 36px;
+  border-radius: 2px
+}
+
+
+
+
+
+/* new css  */
+
+
+
+
+
+
+

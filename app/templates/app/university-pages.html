@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+{% if universitydetails.university %}
+  {{universitydetails.university}}
+{% else %}
+  University Details
+{% endif %}
+{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5 pt- 5 blogs-">
+
+
+  <div class="d-flex flex-column flex-lg-row  flex-md-column flex-sm-column">
+    
+    <div class="col-sm-12 col-md-12 col-lg-12 col-12 py-3 ">
+
+      
+      <img class="d-block w-100 img-fluid"  src="{{universitydetails.image.url}}" alt=""/>
+
+      <div class="">
+      <h2 class="pt-3">{{universitydetails.university}}</h2>
+      <p>
+        {{universitydetails.discriptions|safe}}
+      </p>
+      
+       </div>
+      </div>
+      
+       
+  </div> 
+</div>
+</div>
+  {% endblock %}

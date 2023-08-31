@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title  %}
+Blogs
+{% endblock %}
+{% block content %}
+
+<section class="page_banner_top_overlay pt-5">
+  <div class="container pt-5 mt-5">
+    <h1 style="font-family:  'Montserrat', sans-serif; color:white; font-size:40px; font-width:600px;">Read Our Blogs</h1>
+    <h6 style="color:white;"><a href="/" class="text-white">Home</a> / <b>Blogs</b></h6>
+  </div>
+</section>
+
+
+<section class="blogs ">
+    <div class="container">
+        <div class="row ">
+          {% for blog in blogs %}
+          <div class="col-sm-12 col-md-6 col-lg-4 col-12 py-3  ">
+            <div class="card bounce-card" style="width: 100%;">
+              <div  class ="tag" >
+               {{blog.created_date}}
+              </div>
+                <img src="{{blog.image.url}}" class="card-img-top" alt="{{blog.image}}" style="height:250px;">
+                <div class="card-body">
+                  <h4 class="card-title cart-heading text-bold">
+                    <a href="{% url 'blog_details' blog.blog_slug %}" style="text-decoration:none; color:black;">
+                      <b style="font-family:times-new-roman;">{{blog.title|truncatechars:25}}</b>
+                    </a>
+                  </h4>
+                  <p class="card-text">
+                    {{blog.discriptions|safe|truncatechars:450}}
+                  </p>
+                  <a href="{% url 'blog_details' blog.blog_slug %}" class="btn btn-danger float-end">Read More</a>
+                </div>
+              </div>
+          </div>
+          {% endfor %}
+
+          
+          
+        </div>
+      </div>
+
+</section>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'app/base.html' %}
+{%  load static %}
+{% block title  %}
+faq
+{% endblock %}
+{% block content %}
+<section class="page_banner_top_overlay pt-5">
+  <div class="container pt-5 mt-5">
+    <h1 style="font-family:  'Montserrat', sans-serif; color:white; font-size:40px; font-width:600px;">FAQ</h1>
+    <h6 style="color:white;"><a href="#" class="text-white">Home</a> / <b>FAQ</b></h6>
+  </div>
+</section>
+
+<!-- faq section start-->
+<section class="Questions my-5">
+  <div class="container">
+   
+    <center>
+      <h2><b style="font-family:times-new-roman;">Frequently Asked  <span class="text-danger"> Question</span></b></h2>
+    </center>
+  
+
+
+    <div class="row pt-4">
+      <div class="col-md-6">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          {% for faq in faqeven%}
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne-{{faq.id}}" aria-expanded="false" aria-controls="flush-collapseOne-{{faq.id}}">
+                <b>{{faq.title}}</b>
+              </button>
+            </h2>
+            <div id="flush-collapseOne-{{faq.id}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                 {{faq.discriptions|safe}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          {% for faq in faqodd %}
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne-{{faq.id}}" aria-expanded="false" aria-controls="flush-collapseOne-{{faq.id}}">
+                <b>{{faq.title}}</b>
+              </button>
+            </h2>
+            <div id="flush-collapseOne-{{faq.id}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                {{faq.discriptions|safe}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+    </div>
+ 
+</div>
+</section>
+<!-- end faq section-->
+
+   {% endblock %}

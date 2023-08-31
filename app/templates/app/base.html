@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" {% if meta_setting.meta_discriptions %} content= "{{meta_setting.meta_discriptions}}" {% else %} content="Toronto Educational consultancy.." {% endif %}/>
+        <meta name="keywords" {% if meta_setting.meta_keywords %}content= "{{meta_setting.meta_keywords}}" {% else %} content="Toronto Educational Consultancy" {% endif %}>
+        <meta name="author" {% if meta_setting.author %} content="{{meta_setting.author}}" {% else %} content="Toronto Educational Consultancy"{% endif %}>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Educational Consultancy|
+            {% block title %}
+
+            {% endblock %}
+        </title>
+        <link rel="icon" type="image/x-icon" href="{% static 'app/image/toronto_logo1.png' %}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Delicious+Handrawn&family=Josefin+Sans&family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'app/css/index.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+        <script src="{% static 'app/js/bootstrap.js' %}"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+       
+       <script>
+        $(document).ready(function(){
+          $(".owl-carousel").owlCarousel(
+            {
+
+          items: 3,
+          loop: true,
+          margin: 30,
+          autoplay: false,
+          navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+          autoplayTimeout: 5000,
+          nav: true,
+          // dots: true,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:2,
+                    nav:true
+                },
+                600:{
+                    items:2,
+                    nav:true
+                },
+                1200:{
+                    items:3,
+                    nav:true,
+                    
+                },
+                2100:{
+                    items:4,
+                    nav:true,
+                    loop:true
+                }
+            }
+            }
+          );
+        });
+       </script>
+ 
+    </head>
+   <body>
+    
+     <!-- start header section -->
+    <header>
+     
+
+      <!-- navbar section start-->
+    <nav class="navbar  navbar-expand-lg navbar-light bg-white px-4 fixed-top border-bottom" >
+      <div class="container-fluid">
+        <a class="navbar-brand fs-3" href="/">
+          {% comment %} <h2 class=" text-center text-danger">Toronto
+           <p class="text-primary"> Educational consultancy service</p> 
+          </h2> {% endcomment %}
+          <img src="{% static 'app/image/toronto_logo1.png' %}" height="80px" width="100%">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5 text-center">
+            <li class="nav-item">
+              <h2><a class="nav-link active text-danger" aria-current="page" style="font-size: 18px!important; font-weight:bold; font-family: Poppins,Helvetica,Arial,sans-serif;" href="/">Home</a></h2>
+            </li>
+            
+            <li class="nav-item">
+              <h2><a class="nav-link text-dark"  style="font-size: 18px!important; font-weight:bold; font-family: Poppins,Helvetica,Arial,sans-serif;" href="{% url 'about' %}">About</a></h2>
+            </li>
+            {% comment %} <li class="nav-item">
+              <h2><a class="nav-link text-dark " href="{% url 'ourteam' %}">Our Team</a></h2>
+            </li>
+           {% endcomment %}
+           
+            <li class="nav-item">
+              <h2> <a class="nav-link text-dark " style="font-size: 18px!important; font-weight:bold; font-family: Poppins,Helvetica,Arial,sans-serif;"  href="{% url 'faq' %}">FAQ</a></h2>
+            </li>
+            <li class="nav-item">
+              <h2><a class="nav-link text-dark "  style="font-size: 18px!important; font-weight:bold; font-family: Poppins,Helvetica,Arial,sans-serif;"  href="{% url 'blog' %}">Blogs</a></h2>
+            </li>
+            <li class="nav-item">
+              <h2><a class="nav-link text-dark "  style="font-size: 18px!important; font-weight:bold; font-family: Poppins,Helvetica,Arial,sans-serif;"  href="{% url 'contact' %}">Contact </a></h2>
+            </li>
+            <li class="nav-item dropdown">
+              <h2>
+                <a class="nav-link dropdown-toggle text-dark"  style="font-size: 18px!important; font-weight:bold; font-family: Poppins,Helvetica,Arial,sans-serif;"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Study in Canada
+                 </a>
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% for university in all_universities%}
+                   <small>
+                      <li>
+                        <a class="dropdown-item text-dark" href="{% url 'university_details' university.slug  %}">{{ university.university_name}}</a>
+                      </li>
+                    </small>
+                   {% endfor %}
+                 </ul>
+              </h2>
+            </li>
+          
+          </ul>
+         
+        </div>
+      </div>
+    </nav>
+    <!-- end navbar section-->
+{% block content %}
+
+{% endblock %} 
+
+<!-- footer section start-->
+<footer class="container-fluid  text-white" style="background-image: linear-gradient(#33368a, #171946);">
+    <div class="row">
+        <div class="col-12 col-md-4 col-lg-3 mt-5">
+            <img src="{% static 'app/image/toronto_logo1.png' %}" class="img-fluid">
+        </div>
+        <div class="col-12 col-md-4 col-lg-3  mt-5">
+          <div class="footer-head pb-4"> quick links</div>
+          <a href="/" class="text-white" style="text-decoration:none;" >Home</a><br>
+          <a href="{% url 'about' %}" style="text-decoration:none;"  class="text-white">About</a><br>
+          {% comment %} <a href="{% url 'ourteam' %}" style="text-decoration:none;"  class="text-white">Our Team</a><br> {% endcomment %}
+          <a href="{% url 'faq' %}" style="text-decoration:none;"  class="text-white">FAQ</a><br>
+          <a href="{% url  'blog' %}" style="text-decoration:none;"  class="text-white">Blog</a><br>
+          <a href="{% url 'contact' %}" style="text-decoration:none;"  class="text-white">Contact</a><br>
+
+          
+
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 mt-5">
+          <div class="footer-head"> Our Office</div>
+          <div style="color:white;" class="pt-3">Head Office</div>
+          <i class="bi bi-geo-alt-fill pt-4"></i>{{ head_office.location}} <br>
+          <i class="bi bi-telephone"></i>+977- {{head_office.phone_number}}</p>
+
+        <div style="color:white;">Branch Office</div>
+          <i class="bi bi-geo-alt-fill"></i>{{ branch_office.location}}<br>
+          <i class="bi bi-telephone"></i>+977-{{branch_office.phone_number}}
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 mt-5 justify-content-between">
+          <div class="footer-head pb-3"> CONNECT WITH US</div>
+          <p>Connect with us through following Social Media: </p>
+          {% if contact_info.website_link %}
+          <a href="{{contact_info.website_link}}" target="_blank" style="text-decoration:none;" >
+            <i class="bi bi-globe fs-3 ps-2"></i>
+          </a>
+          {% endif %}
+
+          {% if contact_info.facebook_page_link%}
+          <a href="{{contact_info.facebook_page_link}}" target="_blank" style="text-decoration:none;" >
+            <i class="bi bi-facebook fs-3 ps-2"></i>
+          </a>
+          {% endif %}
+          
+          {% if contact_info.email %}
+          <a href="mailto:{{contact_info.email}}" style="text-decoration:none;" >
+            <i class="bi bi-envelope fs-3 ps-2"></i>
+          </a>
+          {% endif %}
+
+          {% if contact_info.insta_page_link %}
+          <a href="{{contact_info.insta_page_link}}" target="_blank" style="text-decoration:none;" >
+            <i class="bi bi-instagram fs-3 ps-2"></i>
+          {% endif %}
+          </div>
+    </div>
+    <div class="mt-5">
+      <p class="ft text-center pb-3">© 2023 Toronto Educational Consultancy service pvt</p>
+    </div>
+    
+</footer>
+<!-- footer section end-->
+
+</body>
+</html>

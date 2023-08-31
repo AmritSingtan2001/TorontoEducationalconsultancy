@@ -1,0 +1,490 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+ <!-- slider section startar-->
+
+ <div id="carouselExampleCaptions" class="carousel slide pt-4">
+  
+  <div class="carousel-inner">
+    {% for image in firstimage %}
+    <div class="carousel-item active">
+      <img src="{{image.image.url}}" class="d-block w-100" alt="...">
+      <div class="carousel-caption ">
+        {% if image.discriptions %}
+        <p>{{image.discriptions|safe}}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% for image in slider_images %}
+    <div class="carousel-item">
+     
+      <img src="{{image.image.url}}" class="d-block w-100" alt="...">
+      <div class="carousel-caption ">
+        {% if image.discriptions %}
+        <p>{{image.discriptions|safe}}</p>
+        {% endif %}
+      </div>
+     
+    </div>
+    {% endfor %}
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+    
+    
+    <!-- end slider section-->
+    </header>
+    <!-- end header section -->
+    
+    <!--about section-->
+    <section class="about my-5">
+      <div class="container">
+      
+      
+      <div class="row">
+        {% for item in about %}
+       <div class="col-sm-12 col-md-6 col-lg-6 col-12 ">
+        <h5 class=" text-center" style="font-family:times-new-roman;">About <span class="text-danger"> Us</span> </h5>
+        <hr class="w-25 m-auto">
+         <h2 class="pt-3"><b style="font-family:times-new-roman;">{{item.title}}</b></h2>
+        
+ 
+ 
+        <h5 class="py-2" style="font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        line-height: 1.7;
+        color: black;
+        font-weight: 400;">
+        {{item.discriptions|safe|truncatechars:550}}
+        </h5>
+         <a  type ="button" class="btn btn-danger text-black  " href="{% url 'about' %}">Read More</a>
+         
+    
+         
+       </div>
+       <div class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto text-center mt-5">
+         <img  class="img-fluid img-thumnails bounce-image d-none d-sm-block " src="{{item.image.url}}"/>
+       </div>
+       {% endfor %}
+      </div>
+       </div>
+     </section>
+      <!-- end about section-->
+
+
+    
+    <!-- Service section start-->
+    {% comment %} <section  class="service my-5" >
+      
+      <div class="container">
+        <h1 class=" text-center">Our Consultancy <span class="text-danger"> Service</span> </h1>
+        <hr class="w-50 m-auto">
+        
+        <br>
+        <br>
+          <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6 col-12 my-5">
+                  <img src="{% static 'app/image/11.png' %}" alt="Your Image" class="img-fluid ">
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 col-12 my-5">
+                  <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+               
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                     Nulla euismod orci nec libero eleifend, quis laoreet enim blandit.
+                      Sed aliquet sapien eget sapien imperdiet lobortis.
+                       Vestibulum pharetra libero euismod est ultrices, vel dignissim velit hendrerit. Nulla ac purus id ipsum suscipit lacinia. Nam sit amet enim et sapien aliquet dapibus.</p>
+                  <button type="button" class="btn btn-outline-primary">learn more</button>
+              </div>
+          </div>
+      </div>
+
+      
+    </section> {% endcomment %}
+
+    <section class="service pt-5 pb-5" style="background:#E5F8F5 !important;">
+      <div id="cards" class="container mt-2 mb-2" >
+        <h5 class=" text-center" style="font-family:times-new-roman;">Our <span class="text-danger"> Service</span> </h5>
+        <center><h2><b style="font-family:times-new-roman;">What We Provide?</b></h2><center>
+        <div class="row text-center">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <h5 class="py-2" style="font-family: 'Poppins', sans-serif;
+              font-size: 18px;
+              line-height: 1.7;
+              color: blackt;
+              font-weight: 400;">Toronto Educational Consultancy provides personalized guidance and support to students as they navigate their academic and career goals. They offer services such as academic planning, university and college selection, admissions consulting, test preparation, career guidance, financial aid and scholarship assistance, and international student support. By providing students with resources and expertise, educational consultancies aim to help students achieve their goals and succeed in their educational journey....
+
+              </h5>
+            
+          <div class="col-md-2"></div>
+        </div>
+        <br>
+        <div class="row  pt-4">
+            {% for service in services %}
+            <div class="col-sm-12 col-md-6 col-lg-4 col-12 card-hover">
+                <div class="card text-dark text-center bg-white pb-2 mb-2 shadow ">
+                    <div class="card-body">
+                        <img src="{{service.image.url}}" class="img-fluid" style="height:150px; width:150px;"> 
+                        <h3 class="card-title pt-4"><b style="font-family:times-new-roman;">{{service.service_title}}</b></h3>
+                        <p class="lead"  style="font-family:times-new-roman;">
+                          {{service.discriptions|safe|truncatechars:150}}
+                        </p>
+                        <a href="{% url 'service_details' service.service_slug  %}" class="btn btn-danger"> Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- end service section -->
+
+  
+
+{% comment %} 
+    <section id="testimonials-area" class="testimonials " >
+      <div class="container ">
+        <h1 class=" text-center">Our <span class="text-danger"> Testimonials</span> </h1>
+        <hr class="w-25 m-auto">
+        <div class="row owl-carousel text-center  mt-5 ">
+          
+          <div class="w-100 col-lg-6 col-md-6 col-sm-12 col-12 ">
+              <div class="card text-dark text-center bg-white pb-2 mb-2 shadow">
+                  <div class="card-body">
+                    <i class="icons bi bi-book"></i>
+                      <h3 class="card-title">Scholarship Assistance</h3>
+                      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati corrupti repellat cupiditate libero laudantium reiciendis neque optio voluptates minima eligendi!</p>
+                      <a href="#">Read More</a>
+                  </div>
+              </div>
+          </div>
+         </div>
+     
+  </div>
+  
+</div>
+</section> {% endcomment %}
+    
+
+  
+  <!-- testimonials section start-->
+  <section id="testimonials-area" class="testimonials pt-5" >
+    <div class="container ">
+      <center>
+        <h2><b style="font-family:times-new-roman;">Our <span class="text-danger"> Testimonials</span></b></h2>
+      </center>
+      <hr class="w-25 m-auto">
+      <div class="row owl-carousel text-center  justify-content-center mt-5 ">
+        {% for item in testimonials %}
+        <div class="w-100 col-lg-6 col-md-6 col-sm-12 col-12 ">
+
+              <div class="img-area text-center">
+                <div class="box-area ">
+              
+                <img class="img-fluid " style="height:100px; width:100%;"  src="{{ item.image.url }}" alt=""/>
+              
+              </div>
+                <h5>{{item.full_name}}</h5>
+                <p class='pt-3'>
+                  {{item.discriptions|safe}}
+                  <br>
+                  
+                 
+                </p>
+               
+
+               
+              </div>
+        </div>
+        
+        {% endfor %}
+        
+        
+     
+    </div>
+    
+      
+  </div>
+
+</section>
+ <!-- testimonials section end-->
+
+
+ 
+
+
+
+
+
+ <!-- faq section start-->
+  <section class="Questions my-5">
+    <div class="container">
+      <center>
+        <h2><b style="font-family:times-new-roman;">Frequently Asked  <span class="text-danger"> Question</span></b></h2>
+      </center>
+    <hr class="w-50 m-auto">
+    
+
+    <div class="row pt-4">
+      <div class="col-md-6">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          {% for faq in faqeven%}
+          <div class="accordion-item">
+            <h2 class="accordion-header" >
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne-{{faq.id}}" aria-expanded="false" aria-controls="flush-collapseOne-{{faq.id}}">
+                <b>{{faq.title}}</b>
+              </button>
+            </h2>
+            <div id="flush-collapseOne-{{faq.id}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                 {{faq.discriptions|safe}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          {% for faq in faqodd %}
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne-{{faq.id}}" aria-expanded="false" aria-controls="flush-collapseOne-{{faq.id}}">
+                <b>{{faq.title}}</b>
+              </button>
+            </h2>
+            <div id="flush-collapseOne-{{faq.id}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                {{faq.discriptions|safe}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+    </div>
+      
+
+
+    
+    <center class="pt-5"><a href="{% url 'faq' %}" class="btn btn-danger">See more</a></center>
+    <br>
+  </div>
+  </section>
+  <!-- end faq section-->
+
+
+  <!-- our team section-->
+  <section class="team section">
+    <div class="container">
+      <center>
+        <h2><b style="font-family:times-new-roman;">Our   <span class="text-danger"> Teams</span></b></h2>
+      </center>
+
+      <hr class="w-25 m-auto">
+        <div class="row pt-4 justify-content-center">
+            {% for team in ourteam %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="team-item">
+                    <figure>
+                        <img src="{{team.image.url}}" class="img-fluid w-100" style="height:300px;"  alt="">
+                        <figcaption>
+                            <div class="info">
+                                <h3 class="text-white">{{team.full_name}}</h3>
+                                <p>{{team.position}}</p>
+                            </div>
+                            <div class="social">
+                                {% if team.instagram_url %}
+                                <a href=" team.instagram_url " target="_blank" class="twitter" data-abc="true"><i class="bi bi-instagram"></i></a>
+                                {% endif %}
+
+                                {% if team.facebook_url %}
+                                <a href="{{team.facebook_url}}" target="_blank" class="facebook" data-abc="true"><i class="bi bi-facebook"></i></a>
+                                {% endif %}
+
+                                {% if team.linkedin_url %}
+                                <a href="{{team.linkedin_url}}" target="_blank" class="google-plus" data-abc="true"><i class="bi bi-linkedin"></i></a>
+                                {% endif %}
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="text-center mt-4 pb-5">
+              <a  type ="button" class="btn btn-danger text-black  " href="">
+                Show More
+              </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end team section-->
+
+
+  
+  <!-- our team section start -->
+    {% comment %} <section class="ourteam">
+      <div class="container">
+        <center>
+          <h2><b style="font-family:times-new-roman;">Our   <span class="text-danger"> Teams</span></b></h2>
+        </center>
+
+        <hr class="w-25 m-auto">
+        <div class="row  my-5">
+          {% for member in ourteam %}
+          <div class="col-sm-12 col-md-6 col-lg-4 col-12">
+              <div class="card text-black text-center bg-white pb-2 mb-2">
+                  <div class="card-body">
+                    <img src="{{member.image.url}}"  class="img-fluid rounded-circle  border border-primary" />
+                      <h2 class="card-title mt-4" style="font-family:times-new-roman;">{{member.full_name}}</h2>
+                      <h6>{{member.position}}</h6>
+                    
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+        
+
+        
+        <div class="text-center mt-4 pb-5">
+          <a  type ="button" class="btn btn-danger text-black  " href="{% url 'ourteam' %}">
+            Show More
+          </a>
+        </div>
+      </div>
+      </div>
+    </section> {% endcomment %}
+  <!-- end team section-->
+
+
+  <!-- Enquiry section start-->
+ <section  id="contact" class="contact-section-padding" style="background:#e8eeef !important;;">
+  <div class="container ">
+    <h1 class=" text-center pt-5 " style="font-family:times-new-roman;">GET IN <span class="text-danger"> TOUCH</span> WITH US</h1>
+    <hr class="w-25 m-auto">
+    <h4 class="mt-4 text-center">We value your inquiries, send us a message and we’ll get back to you
+    </h4 >
+    <div class="row ">
+      <div class="  col-lg-6 col-md-6 col-sm-12 h-100 d-none d-sm-block   my-5" > 
+
+        <img class=" img-fluid " src="{% static 'app/image/pngegg.png' %}" alt="contactimg" />
+      </div>
+      <div class="col-md-12 col-lg-6 col-sm-12 col-12 mt-5 shadow rounded p-3 bg-white rounded ">
+        {% if messages %}
+              {% for msg in messages %}
+                  {% if msg.tags == 'success' %}
+                  <div class="alert alert-success alert-dismissable fade show text-start">
+                      {{msg.message}}
+                      <span class="closebtn float-end btn" onclick="this.parentElement.style.display='none';">&times;</span>
+
+                  </div>
+                  {% else %}
+                  <div class="alert alert-danger alert-dismissable fade show text-start">
+                      {{msg.message}}
+                      <span class="closebtn float-end btn" onclick="this.parentElement.style.display='none';">&times;</span>
+
+                  </div>
+                  {% endif %}
+              {% endfor %}
+          {% endif %}
+        
+          
+
+        <form class="d-block w-100 box-shadow h-100"  method="post" action ="{% url 'contact' %}">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col col-sm-6">
+              <input
+                  type="text"
+                  class="form-control"
+                  id="fname"
+                  name="firstname"
+                  placeholder="Full Name"
+                  required
+              >
+            </div>
+            <div class="col col-sm-6">
+              <input
+                type="text"
+                class="form-control"
+                id="lname"
+                name="lastname"
+                placeholder="Last Name"
+                required
+              >
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col col-sm-6">
+              <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="E-mail"
+                  required
+              >
+            </div>
+
+            <div class="col col-sm-6">
+              <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              name="phone_number"
+              placeholder="Phone Number"
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col col-sm-12">
+              <textarea
+                name="message"
+                  id="message"
+                  rows="3"
+                  placeholder=" Message"
+              ></textarea>
+            </div>
+
+
+          </div>
+          <div class="text-center mt-4">
+            <button type="submit" name="Submit" class="btn btn-danger">Submit</button>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end Enquiry section-->
+
+ <section>
+  
+ </section>
+ {% endblock %}

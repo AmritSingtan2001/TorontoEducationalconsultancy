@@ -1,0 +1,73 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Blog Details
+{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5 pt- 5 blogs-">
+  <h1 style="font-family:Sora, sans-serif;
+      font-size: 45px;
+      line-height: 60px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-top:50px;
+      padding-left:50px;
+      padding-bottom:50px;
+      border-radious:10px;
+      color:white;
+      text-aligne:center;
+      background-image: url('https://www.doi.gov/sites/doi.gov/files/styles/home_page_slider/public/blog-post/thumbnail-images/johndaywsrmilkywaybobwickblmphotosmall.jpg?itok=9LyfNaeV');
+      }">
+      Service
+      <br>
+      <p style="font-family:Poppins, sans-serif;
+      font-size: 16px;
+      line-height: 28px;
+      font-weight: 400;
+      color:white;
+    "><a href="/" class="text-white">Home</a> / <a href="/" class="text-white"> Service</a></p>
+      </h1>
+
+
+    <div class="d-flex flex-column flex-lg-row  flex-md-column flex-sm-column">
+    
+    
+    <div class="col-sm-12 col-md-12 col-lg-6 col-12 ">
+      
+      <div class="">
+      <h1 style="font-family:times-new-roman;">{{servicedetail.service_title}}</h1>
+      <p style="font-family:times-new-roman;">
+        {{servicedetail.discriptions|safe}}
+      </p>
+      
+       </div>
+      </div>
+      
+       <div class="row d-flex  align-items-start px-5  layout-background-color">
+        
+        <img class="d-block w-100 img-fluid"  src="{{servicedetail.image.url}}" alt=""/>
+          
+    </div> 
+
+   
+</div>
+<div class="row  pt-4">
+  {% for service in services %}
+  <div class="col-sm-12 col-md-6 col-lg-4 col-12 card-hover">
+      <div class="card text-dark text-center bg-white pb-2 mb-2 shadow ">
+          <div class="card-body">
+              <img src="{{service.image.url}}" class="img-fluid" style="height:150px; width:150px;"> 
+              <h3 class="card-title pt-4"><b style="font-family:times-new-roman;">{{service.service_title}}</b></h3>
+              <p class="lead"  style="font-family:times-new-roman;">
+                {{service.discriptions|safe|truncatechars:150}}
+              </p>
+              <a href="{% url 'service_details' service.service_slug  %}" class="btn btn-danger"> Read More</a>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
+
+
+</div>
+</div>
+  {% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+{{blogdetails.title}}
+{% endblock %}
+{% block content %}
+<section class="page_banner_top_overlay pt-5">
+  <div class="container pt-5 mt-5">
+    <h1 style="font-family:  'Montserrat', sans-serif; color:white; font-size:40px; font-width:600px;">Read Our Blogs</h1>
+    <h6 style="color:white;"><a href="#" class="text-white">Home</a> / <b><a href="{% url 'blog' %}" class="text-white">Blogs</a></b></h6>
+  </div>
+</section>
+
+<div class="container py-5 blogs-">
+ 
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 col-12 ">
+        <div class="">
+          <h1>{{blogdetails.title}}</h1>
+          <p>
+            {{blogdetails.discriptions|safe}}
+          </p>
+          <img class="d-block w-100 img-fluid"  src="{{blogdetails.image.url}}" alt=""/>
+           </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-4 col-12 sm-pt-2">
+          <h1 class="text-uppercase ">RECENT POST </h1>
+          {% for blog in allblog %}
+          <div class="row pb-2">
+            <div class="col-4 ">
+                <img class="w-100 "  src="{{blog.image.url}}" alt="">
+            </div>
+            <div class="col-8 setHover">
+                <a href="{% url  'blog_details' blog.blog_slug %}" style='text-decoration:none;'><b>
+                  {{blog.title}}
+                </b>
+                </a>
+                <br>
+                {{blog.created_date}}
+            </div>
+            <hr class=" bg-secondary">
+          </div>
+          {% endfor %}
+      </div>
+   </div>
+
+</div>
+</div>
+  {% endblock %}

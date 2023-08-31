@@ -1,0 +1,187 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+About
+{% endblock %}
+{% block content %}
+
+<section class="page_banner_top_overlay pt-5">
+  <div class="container pt-5 mt-5">
+    <h1 style="font-family:  'Montserrat', sans-serif; color:white; font-size:40px; font-width:600px;">About Us</h1>
+    <h6 style="color:white;"><a href="/" class="text-white">Home</a> / <b>About Us</b></h6>
+  </div>
+</section>
+
+
+
+<section class="about my-2">
+  <div class="container">
+  
+  <div class="row">
+    {% for item in about_us %}
+
+        {% if  forloop.counter|divisibleby:2 %}
+        <div class="col-sm-12 col-md-6 col-lg-6 col-12   d-none d-sm-block   m-auto text-center">
+          <img  class="img-fluid img-thumnails  " src="{{item.image.url}}"/>
+    
+        </div>
+        
+        <div class="col-sm-12 col-md-6 col-lg-6 col-12 my-5">
+          
+        
+          </h5>
+          <h2 class=" text-center text-bold" style="font-family:times-new-roman;">  {{item.title}} </h2>
+          <hr class="w-25 m-auto"/>
+          <p class="" style="
+          font-family: 'Poppins', sans-serif;
+          font-size: 20px;
+          line-height: 1.7;
+          color: #333;
+          font-weight: 400;
+          ">
+          {{item.discriptions|safe|truncatechars:610}}
+          </p>
+      
+          
+        </div>
+        {% else %}
+        <div class="col-sm-12 col-md-6 col-lg-6 col-12 my-5">
+          <h2 class=" text-center" style="font-family:times-new-roman;">{{item.title}} </h2>
+          <hr class="w-25 m-auto"/> 
+          <p class="py-2" style="font-family: 'Poppins', sans-serif;
+          font-size: 20px;
+          line-height: 1.7;
+          color: #333;
+          font-weight: 400;">
+          {{item.discriptions|safe|truncatechars:610}}
+      
+          </p>
+       
+          
+         </div>
+         <div class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto  d-none d-sm-block  text-center">
+           <img  class="img-fluid img-thumnails  bounce-image" src="{{item.image.url}}"/>
+      
+         </div>
+        
+        {% endif %}
+        <p class="" style="
+          font-family: 'Poppins', sans-serif;
+          font-size: 20px;
+          line-height: 1.7;
+          color: #333;
+          font-weight: 400;
+          ">
+          {{item.discriptions|safe|truncatechars:610}}
+          </p>
+    {% endfor %}
+   
+  </div>
+ </div>
+ </section>
+
+
+  <!-- Enquiry section start-->
+  <section  id="contact" class="contact-section-padding" style="background:#e8eeef !important;;">
+    <div class="container ">
+      <h1 class=" text-center pt-5 " style="font-family:times-new-roman;">GET IN <span class="text-danger"> TOUCH</span> WITH US</h1>
+      <hr class="w-25 m-auto">
+      <h4 class="mt-4 text-center">We value your inquiries, send us a message and we’ll get back to you
+      </h4 >
+      <div class="row ">
+        <div class="  col-lg-6 col-md-6 col-sm-12 h-100  d-none d-sm-block  my-5" > 
+  
+          <img class=" img-fluid " src="{% static 'app/image/pngegg.png' %}" alt="contactimg" />
+        </div>
+        <div class="col-md-12 col-lg-6 col-sm-12 col-12 mt-5 shadow rounded p-3 bg-white rounded ">
+          {% if messages %}
+                {% for msg in messages %}
+                    {% if msg.tags == 'success' %}
+                    <div class="alert alert-success alert-dismissable fade show text-start">
+                        {{msg.message}}
+                        <span class="closebtn float-end btn" onclick="this.parentElement.style.display='none';">&times;</span>
+  
+                    </div>
+                    {% else %}
+                    <div class="alert alert-danger alert-dismissable fade show text-start">
+                        {{msg.message}}
+                        <span class="closebtn float-end btn" onclick="this.parentElement.style.display='none';">&times;</span>
+  
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+          
+            
+  
+          <form class="d-block w-100 box-shadow h-100"  method="post" action ="{% url 'contact' %}">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col col-sm-6">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="fname"
+                    name="firstname"
+                    placeholder="Full Name"
+                    required
+                >
+              </div>
+              <div class="col col-sm-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lname"
+                  name="lastname"
+                  placeholder="Last Name"
+                  required
+                >
+              </div>
+            </div>
+            <div class="row">
+  
+              <div class="col col-sm-6">
+                <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="E-mail"
+                    required
+                >
+              </div>
+  
+              <div class="col col-sm-6">
+                <input
+                type="tel"
+                class="form-control"
+                id="phone"
+                name="phone_number"
+                placeholder="Phone Number"
+                >
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col col-sm-12">
+                <textarea
+                  name="message"
+                    id="message"
+                    rows="3"
+                    placeholder=" Message"
+                ></textarea>
+              </div>
+  
+  
+            </div>
+            <div class="text-center mt-4">
+              <button type="submit" name="Submit" class="btn btn-danger">Submit</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end Enquiry section-->
+
+ {% endblock %}
